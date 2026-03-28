@@ -1,26 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CompA from "./components/Common/CompA";
+import CompB from "./components/Common/CompB";
+import Header from "./components/Layout/Header";
 
-const App = () =>{
+const App = () => {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Nasa Mission Control Dashboard</h1>
-        </div>
-      </section>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<CompA />} />
+        <Route path="/comp" element={<CompB />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-      <div className="ticks"></div> 
-    </>
-  )
-}
-
-export default App
+export default App;
