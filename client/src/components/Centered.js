@@ -1,4 +1,4 @@
-import {withStyles}  from "arwes";
+import { withStyles } from "arwes";
 
 const styles = () => ({
   root: {

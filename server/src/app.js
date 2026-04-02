@@ -8,11 +8,11 @@ const launchesRouter = require('./routes/launches/launches.router');
 const app = express();
 
 app.use(cors({
-    origin:'http://localhost:5173'
+    origin:'http://localhost:3000'
 }));
 
 app.use(express.json());
-app.use(morgan('combined'));
+app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname,'..','public')));
 

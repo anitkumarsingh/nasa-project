@@ -6,17 +6,18 @@ const getAllLaunches = (req,res) =>{
 
 const addLaunchInfo = (req,res)=>{
   const launch = req.body;
-  if(!launch.mission || !launch.rocketType || !launch.launchDate || !launch.distination){
+  console.log(req)
+  if(!launch?.mission || !launch?.rocket || !launch?.launchDate || !launch?.target){
     res.status(400).json({error:'Missing required launch property'})
   }
-   launch.luanchDate = new Date(launch.launchDate);
+   launch.launchDate = new Date(launch.launchDate);
    if(isNaN(launch.launchDate)){
     res.status(400).json({
       error:'Invalid launch date'
     })
    }
    addLaunch(launch)
-   res.status(201).json(launch)
+   return res.status(201).json(launch)
 }
 
 module.exports ={
